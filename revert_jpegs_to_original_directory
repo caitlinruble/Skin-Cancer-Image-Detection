@@ -1,0 +1,43 @@
+### this python script allows me to quickly move the 
+# jpeg files that have been nested inside batch folders 
+# in the parent directories back into those parents.
+
+import os
+
+
+#do training images first
+target_dir= '/Users/cortega/Documents/GitHub/Skin-Cancer-Image-Detection/jpeg/train/'
+
+
+for batch in range(7):
+    try:
+        source_dir = '/Users/cortega/Documents/GitHub/Skin-Cancer-Image-Detection/jpeg/train/' + str(batch) +'/'
+        file_names = os.listdir(source_dir)    
+        for file_name in file_names:
+            old_image_path = source_dir + file_name
+            new_image_path = target_dir + file_name
+            os.rename(old_image_path, new_image_path)
+        try:
+            os.rmdir(source_dir)
+        except OSError as e:
+            print("Error: %s : %s" % (source_dir, e.strerror))
+    except:
+        print('Already cleared out and deleted subfolder: train/' +str(batch))
+
+#now test images 
+target_dir= '/Users/cortega/Documents/GitHub/Skin-Cancer-Image-Detection/jpeg/test/'
+
+for batch in range(3):
+    try:
+        source_dir = '/Users/cortega/Documents/GitHub/Skin-Cancer-Image-Detection/jpeg/test/' + str(batch) +'/'
+        file_names = os.listdir(source_dir)    
+        for file_name in file_names:
+            old_image_path = source_dir + file_name
+            new_image_path = target_dir + file_name
+            os.rename(old_image_path, new_image_path)
+        try:
+            os.rmdir(source_dir)
+        except OSError as e:
+            print("Error: %s : %s" % (source_dir, e.strerror))
+    except:
+        print('Already cleared out and deleted subfolder test/ ' +str(batch))

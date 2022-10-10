@@ -1,0 +1,45 @@
+import pandas as pd
+import math
+import os
+from genericpath import exists
+
+train = pd.read_csv('train.csv')
+test = pd.read_csv('test.csv')
+
+train_ims = train.image_name
+test_ims = test.image_name
+
+
+for im_list, index in zip([train_ims, test_ims], range(2)):
+    
+    n_batches = math.ceil(len(im_list)/5000)
+    if index == 0:
+        parent_dir = "/Users/cortega/Documents/GitHub/Skin-Cancer-Image-Detection/jpeg/train"
+    else: 
+        parent_dir = "/Users/cortega/Documents/GitHub/Skin-Cancer-Image-Detection/jpeg/test"
+    print(parent_dir)
+    print(n_batches)
+
+    for batch in range(n_batches):
+        directory = str(batch)
+        dir_path = os.path.join(parent_dir, directory)
+        try: 
+            os.mkdir(dir_path)
+        except: 
+            print("A directory already exists at: " + dir_path)
+        
+
+        #move up to 5000 images into batch folder
+        try:
+            for im in range(batch*5000, batch*5000+5000):
+                old_image_path = parent_dir + "/" + str(im_list[im]) + ".jpg"
+                if exists(old_image_path):
+                    new_image_path = dir_path + "/" + str(im_list[im]) + ".jpg"
+                    os.rename(old_image_path, new_image_path)
+        except:
+            for im in range(batch*5000, len(im_list)):
+                old_image_path = parent_dir + "/" + str(im_list[im]) + ".jpg"
+                if exists(old_image_path):
+                    new_image_path = dir_path + "/" + str(im_list[im]) + ".jpg"
+                    os.rename(old_image_path, new_image_path)
+
