@@ -11,19 +11,23 @@ Can deep learning help the everyday user know whether a mole is normal, or wheth
 - [Exploratory Data Analysis Notebook]()
 
 
+
+
 ### Abstract:
 
 Melanoma is a deadly form of skin cancer that is highly curable when caught early. A deep-learning computer vision tool was developed to identify melanoma from images of skin lesions. This tool was trained on the SIIM-ISIC Melanoma Challenge dataset available on Kaggle using the FastAI library to interface with the ResNet34 pre-trained Convolutional Neural Network (CNN). The final model selected uses the average probability across 5 cross-validation folds to classify whether an image shows a malignant melanoma, or a benign skin lesion. In private validation testing, the ensembled model had a 90% chance of distinguishing between the positive and negative classes (AUROC = 0.9) and correctly classified 83% of the melanoma images (recall = 0.83). In further validation testing through submission to Kaggle, the model had an 85% chance of distinguishing between the malignant and benign classes (AUROC = 0.8531). A proposed use case for this model is as a screening tool for home use; early, easy, and skillful screening with artificial intelligence tools can effectively get more patients in the door for early treatment of melanoma. Getting more patients in the door helps melanoma patients by increasing their survival rates and decreasing the cost and intensity of treatment, hospital systems by reducing the number of patients in need of in-hospital surgery and chemotherapy and thereby reducing system strain, and health insurance companies by significantly reducing the cost of treating the same condition when caught early vs. late.
+
+
+### My approach: 
+
+This computer vision problem called for a deep learning approach, and the use of a pretrained convolutional neural network (CNN) to be fine-tuned on the skin lesion data set was employed. The FastAI library coupled with the ResNet34 pretrained CNN was the selected approach. FastAI is a high-level framework built on top of PyTorch. The classes in the training images were balanced by down-sampling the benign images, and the resulting training subset was further split into a training and internal-validation set. The training data was manually split into 5 cross-validation folds, and the ResNet34 learner was trained separately 5 times over this cross-validation split. In each training, the ResNet34 model was fine-tuned over 15 epochs, optimizing for the binary RocAucScore metric, and the best epoch was saved as the best model for that CV fold. The 5 find-tuned CNN learners were ensembled, and the mean prediction value given by each was taken as the final prediction values for the test set.
+
 
 ### Results:
 
 The ensembled CNN learner model score an AUROC of 0.85 on the "private" Kaggle test image set containing 7,687 unseen images, indicating that the model has an 85% chance of distinguishing between melanoma and benign skin lesions. In the "public" test set of 3,295 images, it scored AUROC = 0.87; the fact that this score was close to the "private" score supports the conclusion that the model performance shows stability across different test sets. The weighted average AUROC across all 10,982 test images was 0.858.
 <img width="387" alt="Screen Shot 2022-10-31 at 1 59 07 PM" src="https://user-images.githubusercontent.com/96548036/199077019-95f6c09a-54da-47ac-9d39-568503192e7b.png">
 
-
-### My approach: 
-
-This computer vision problem called for a deep learning approach, and the use of a pretrained convolutional neural network (CNN) to be fine-tuned on the skin lesion data set was employed. The FastAI library coupled with the ResNet34 pretrained CNN was the selected approach. FastAI is a high-level framework built on top of PyTorch. The classes in the training images were balanced by down-sampling the benign images, and the resulting training subset was further split into a training and internal-validation set. The training data was manually split into 5 cross-validation folds, and the ResNet34 learner was trained separately 5 times over this cross-validation split. In each training, the ResNet34 model was fine-tuned over 15 epochs, optimizing for the binary RocAucScore metric, and the best epoch was saved as the best model for that CV fold. The 5 find-tuned CNN learners were ensembled, and the mean prediction value given by each was taken as the final prediction values for the test set.
 
 ### The Dataset:
 
