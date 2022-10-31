@@ -4,7 +4,7 @@ Can deep learning help the everyday user know whether a mole is normal, or wheth
 ### Repository Key Contents:
 - [Model Metrics File](https://github.com/caitlinruble/Skin-Cancer-Image-Detection/blob/8886d25c4b03304b14c58e913b0fb9dfe9559f90/Model%20Metrics.md)
 - [requirements.txt](requirements.txt)
-- [Full Report](https://github.com/caitlinruble/Skin-Cancer-Image-Detection/blob/dd7cb50a9c2dbf55f4c4cd90c1f36037c6e671da/Reports/Melanoma%20Image%20Detection_Final%20Report.pdf)
+- [Full Project Report](https://github.com/caitlinruble/Skin-Cancer-Image-Detection/blob/dd7cb50a9c2dbf55f4c4cd90c1f36037c6e671da/Reports/Melanoma%20Image%20Detection_Final%20Report.pdf)
 - [Slide Deck Presentation to Executive Audience](Reports/Melanoma_AI_presentation_slides.pdf)
 - [Final Model Training Notebook](melanoma-detection-using-fastai-on-resnet34-base.ipynb)
 - [Model Development and Experimentation Notebook](https://github.com/caitlinruble/Skin-Cancer-Image-Detection/blob/dd7cb50a9c2dbf55f4c4cd90c1f36037c6e671da/Development%20Notebooks/melanoma-detection-using-fastai-hyperparameter-experiments.ipynb)
