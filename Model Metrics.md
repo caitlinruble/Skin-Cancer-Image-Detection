@@ -17,7 +17,7 @@ call backs = [SaveModelCallback(monitor='roc_auc_score', comp = np.greater, with
 
 **Kaggle Competition ROCAUC Leaderboard Scores:**
 
-Private AUROC = 0.8531
+Private AUROC = 0.8531 \
 Public AUROC = 0.8702
 
 **Private Validation on Unseen Test Data:** 
