@@ -4,14 +4,14 @@
 An ensemble of 5 neural networks, each trained on a different fold of the training data. 
 
 ### Parameters:
-Pre-trained model = ResNet34
+Pre-trained model = ResNet34 \
 Monitoring function = RocAucBinary
 
 ### Hyperparameters:
-Batch transformers = Normalize.from_stats(*imagenet_stats)
-batch size = 8
-n_epochs = 15
-call backs = [SaveModelCallback(monitor='roc_auc_score', comp = np.greater, with_opt=True), ReduceLROnPlateau(monitor = 'roc_auc_score', comp = np.greater, patience=2)])
+Batch transformers = Normalize.from_stats(*imagenet_stats) \
+batch size = 8 \
+n_epochs = 15 \
+call backs = [SaveModelCallback(monitor='roc_auc_score', comp = np.greater, with_opt=True),\  ReduceLROnPlateau(monitor = 'roc_auc_score', comp = np.greater, patience=2)])
 
 ### Performance:
 
