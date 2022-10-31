@@ -11,7 +11,7 @@ Monitoring function = RocAucBinary
 Batch transformers = Normalize.from_stats(*imagenet_stats) \
 batch size = 8 \
 n_epochs = 15 \
-call backs = [SaveModelCallback(monitor='roc_auc_score', comp = np.greater, with_opt=True),\  ReduceLROnPlateau(monitor = 'roc_auc_score', comp = np.greater, patience=2)])
+call backs = [SaveModelCallback(monitor='roc_auc_score', comp = np.greater, with_opt=True), ReduceLROnPlateau(monitor = 'roc_auc_score', comp = np.greater, patience=2)])
 
 ### Performance:
 
