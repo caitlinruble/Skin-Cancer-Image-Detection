@@ -1,5 +1,5 @@
 # Skin-Cancer-Image-Detection
-Can deep learning help the everyday user know whether a mole is normal, or whether they should really get that checked out? (Spoiler Alert--yes, it most certainly can!)
+Can deep learning help the everyday user know whether a mole is normal, or whether they should really get that checked out? This end-to-end project uses deep learning to build a convolutional neural network with an 85% chance of distinguishing between images of melanoma and images of benign skin lesions! 
 
 ### Repository Key Contents:
 - [Model Metrics File](https://github.com/caitlinruble/Skin-Cancer-Image-Detection/blob/8886d25c4b03304b14c58e913b0fb9dfe9559f90/Model%20Metrics.md)
